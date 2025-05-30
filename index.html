@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bentwood Men's Golf Association - Official Website</title>
+    <style>
+        /* ===== CUSTOMIZABLE COLOR SCHEME ===== */
+        :root {
+            --primary-color: #1a4d2e;      /* Dark green - main color */
+            --secondary-color: #2d5a3d;    /* Medium green - accents */
+            --accent-color: #4caf50;       /* Light green - highlights */
+            --background-light: #f5f5f5;   /* Light gray background */
+            --text-dark: #333;             /* Dark text */
+            --text-light: #666;            /* Light text */
+            --white: #ffffff;              /* White */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 77, 46, 0.8), rgba(26, 77, 46, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e8f5e9" width="1200" height="600"/><path fill="%234caf50" d="M0 400Q300 300 600 350T1200 400V600H0z"/></svg>') center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--background-light);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Quick Links Section */
+        .quick-links {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .quick-link {
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        
+        .quick-link:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .quick-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        /* Membership Section */
+        .membership {
+            background: white;
+        }
+        
+        .membership-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .membership-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .membership-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .membership-card li:before {
+            content: "✓ ";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* Members Section */
+        .members-section {
+            background: var(--background-light);
+        }
+        
+        .members-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .member-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .stat-card {
+            padding: 1.5rem;
+            background: var(--background-light);
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .members-list {
+            list-style: none;
+            line-height: 1.8;
+        }
+        
+        .members-list li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Board Section */
+        .board {
+            background: white;
+        }
+        
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .board-member {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .board-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .board-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+        
+        /* Events Section */
+        .events {
+            background: var(--background-light);
+        }
+        
+        .event-filters {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            margin: 0 5px;
+            background: white;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .event-list {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .event {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 2px solid #eee;
+            transition: background 0.3s;
+        }
+        
+        .event:hover {
+            background: var(--background-light);
+        }
+        
+        .event-date {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .event-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+        
+        .event-type {
+            background: #e8f5e9;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Tournament Results Section */
+        .results-section {
+            background: white;
+        }
+        
+        .results-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .results-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .leaderboard {
+            background: var(--background-light);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        
+        .leaderboard-item {
+            display: grid;
+            grid-template-columns: 50px 1fr auto auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+        }
+        
+        .position {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        /* News Section */
+        .news-section {
+            background: var(--background-light);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .news-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            background: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        /* Registration Form */
+        .registration-section {
+            background: var(--background-light);
+        }
+        
+        .registration-form {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-item {
+            padding: 1.5rem;
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0d2818;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            opacity: 0.8;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-2 {
+            margin-top: 2rem;
+        }
+        
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .event {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-content {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <!-- IMPORTANT: Save your logo as bentwood-mga-logo.png in the same folder as index.html -->
+                <img src="bentwood-mga-logo.png" alt="Bentwood MGA Logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%234caf50%22/><text x=%2250%%22 y=%2255%%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2240%22>MGA</text></svg>'">
+                <span class="logo-text">BENTWOOD MGA</span>
+            </div>
+            <div class="mobile-menu-toggle">☰</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#members">Members</a></li>
+                <li><a href="#board">Board</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#register">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bentwood Men's Golf Association</h1>
+            <p>Where Tradition Meets Competition</p>
+            <a href="#register" class="btn">Join Now - Only $40/Year</a>
+            <a href="#events" class="btn btn-secondary">View Tournaments</a>
+        </div>
+    </section>
+
+    <!-- Quick Links Bar -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="links-grid">
+                <div class="quick-link">
+                    <a href="#events">📅 Tournament Schedule</a>
+                </div>
+                <div class="quick-link">
+                    <a href="#results">🏆 Latest Results</a>
+                </div>
+                <div class="quick-link">
+                    <a href="#register">✍️ Sign Up</a>
+                </div>
+                <div class="quick-link">
+                    <a href="https://www.ghin.com" target="_blank">⛳ Check Handicap</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Excellence on Every Tee</h2>
+            <p class="text-center mb-2" style="max-width: 800px; margin: 0 auto;">
+                The Bentwood Men's Golf Association brings together passionate golfers of all skill levels for competitive play, 
+                camaraderie, and the love of the game. With over 150 members, we host weekly tournaments, special events, 
+                and maintain an active handicap system ensuring fair play for all.
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Weekly Tournaments</h3>
+                    <p>Competitive play every Saturday morning with prizes and recognition</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⛳</div>
+                    <h3>GHIN Handicap System</h3>
+                    <p>Official USGA handicap service ensuring fair play for golfers of all abilities</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Social Events</h3>
+                    <p>Monthly dinners, annual awards banquet, and member-guest events</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Year-Long Competitions</h3>
+                    <p>Points races, most improved player, and special achievement awards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="membership" class="membership">
+        <div class="container">
+            <h2>Join Our Association</h2>
+            
+            <div class="membership-card">
+                <h3>Annual Membership</h3>
+                <div class="price">$40</div>
+                <p>per year</p>
+                <ul>
+                    <li>Access to all weekly tournaments</li>
+                    <li>GHIN Handicap service included</li>
+                    <li>Eligible for all prizes and awards</li>
+                    <li>Member-Guest tournament entry</li>
+                    <li>Monthly social events and dinners</li>
+                    <li>Annual awards banquet invitation</li>
+                    <li>Pro shop member discounts</li>
+                    <li>Email newsletter and updates</li>
+                    <li>Voting rights at annual meeting</li>
+                    <li>Special member-only events</li>
+                </ul>
+                <a href="#register" class="btn">Join Now</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-light);">
+                    Membership runs January 1 - December 31
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="members" class="members-section">
+        <div class="container">
+            <h2>Our Members</h2>
+            
+            <div class="members-container">
+                <div class="member-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">152</div>
+                        <div>Active Members</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12.4</div>
+                        <div>Average Handicap</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">47</div>
+                        <div>Tournaments/Year</div>
+                    </div>
+                </div>
+                
+                <h3 class="text-center mb-2">2025 Membership Roster</h3>
+                
+                <div class="members-grid">
+                    <div>
+                        <h4>Members A-H</h4>
+                        <ul class="members-list">
+                            <li>Anderson, Tom (8.2)</li>
+                            <li>Baker, James (12.1)</li>
+                            <li>Brown, Michael (15.7)</li>
+                            <li>Campbell, Robert (4.5)</li>
+                            <li>Carter, William (18.3)</li>
+                            <li>Davis, John (9.9)</li>
+                            <li>Edwards, Mark (11.2)</li>
+                            <li>Foster, David (7.8)</li>
+                            <li>Garcia, Antonio (14.6)</li>
+                            <li>Hall, Christopher (6.3)</li>
+                            <li>Harris, Daniel (16.9)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Members I-P</h4>
+                        <ul class="members-list">
+                            <li>Jackson, Steve (10.5)</li>
+                            <li>Johnson, Mike (3.2)</li>
+                            <li>Jones, Richard (13.8)</li>
+                            <li>King, Patrick (8.9)</li>
+                            <li>Lee, Thomas (17.2)</li>
+                            <li>Lewis, Andrew (5.6)</li>
+                            <li>Martinez, Steve (11.9)</li>
+                            <li>Miller, James (19.4)</li>
+                            <li>Mitchell, Paul (7.1)</li>
+                            <li>Moore, Joseph (15.3)</li>
+                            <li>Nelson, Gary (9.7)</li>
+                            <li>Parker, Frank (12.8)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Members Q-Z</h4>
+                        <ul class="members-list">
+                            <li>Peterson, Carl (6.9)</li>
+                            <li>Phillips, Larry (14.2)</li>
+                            <li>Roberts, Kenneth (10.1)</li>
+                            <li>Robinson, Peter (8.6)</li>
+                            <li>Rodriguez, Juan (16.5)</li>
+                            <li>Scott, Raymond (4.8)</li>
+                            <li>Smith, John (11.5)</li>
+                            <li>Taylor, Edward (13.1)</li>
+                            <li>Thomas, George (7.4)</li>
+                            <li>Thompson, Bill (15.8)</li>
+                            <li>Turner, Alan (9.3)</li>
+                            <li>Walker, Dennis (12.6)</li>
+                            <li>White, Jeffrey (5.9)</li>
+                            <li>Williams, Charles (17.7)</li>
+                            <li>Wilson, Dave (8.1)</li>
+                            <li>Wood, Timothy (14.9)</li>
+                            <li>Wright, Kevin (10.8)</li>
+                            <li>Young, Brian (6.5)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <p><em>Numbers in parentheses indicate current handicap index</em></p>
+                    <a href="#register" class="btn mt-2">Become a Member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="board" class="board">
+        <div class="container">
+            <h2>2025 Board of Directors</h2>
+            
+            <div class="board-grid">
+                <div class="board-member">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e0e0e0'/><text x='50%' y='55%' text-anchor='middle' fill='%23666' font-size='40'>👤</text></svg>" alt="President">
+                    <h3>President</h3>
+                    <p><strong>John Smith</strong></p>
+                    <p>president@bentwoodmga.com</p>
+                    <p>(555) 123-4001</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Term: 2024-2025</p>
+                </div>
+                
+                <div class="board-member">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e0e0e0'/><text x='50%' y='55%' text-anchor='middle' fill='%23666' font-size='40'>👤</text></svg>" alt="Vice President">
+                    <h3>Vice President</h3>
+                    <p><strong>Mike Johnson</strong></p>
+                    <p>vicepresident@bentwoodmga.com</p>
+                    <p>(555) 123-4002</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Term: 2024-2025</p>
+                </div>
+                
+                <div class="board-member">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e0e0e0'/><text x='50%' y='55%' text-anchor='middle' fill='%23666' font-size='40'>👤</text></svg>" alt="Tournament Director">
+                    <h3>Tournament Director</h3>
+                    <p><strong>Dave Wilson</strong></p>
+                    <p>tournaments@bentwoodmga.com</p>
+                    <p>(555) 123-4003</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Oversees all competitive events</p>
+                </div>
+                
+                <div class="board-member">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e0e0e0'/><text x='50%' y='55%' text-anchor='middle' fill='%23666' font-size='40'>👤</text></svg>" alt="Treasurer">
+                    <h3>Treasurer</h3>
+                    <p><strong>Tom Anderson</strong></p>
+                    <p>treasurer@bentwoodmga.com</p>
+                    <p>(555) 123-4004</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Manages finances and dues</p>
+                </div>
+                
+                <div class="board-member">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e0e0e0'/><text x='50%' y='55%' text-anchor='middle' fill='%23666' font-size='40'>👤</text></svg>" alt="Secretary">
+                    <h3>Secretary</h3>
+                    <p><strong>Bill Thompson</strong></p>
+                    <p>secretary@bentwoodmga.com</p>
+                    <p>(555) 123-4005</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Records and communications</p>
+                </div>
+                
+                <div class="board-member">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e0e0e0'/><text x='50%' y='55%' text-anchor='middle' fill='%23666' font-size='40'>👤</text></svg>" alt="Handicap Chairman">
+                    <h3>Handicap Chairman</h3>
+                    <p><strong>Steve Martinez</strong></p>
+                    <p>handicap@bentwoodmga.com</p>
+                    <p>(555) 123-4006</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Manages GHIN system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="events">
+        <div class="container">
+            <h2>2025 Tournament Schedule</h2>
+            
+            <div class="event-filters">
+                <button class="filter-btn active" onclick="filterEvents('all')">All Events</button>
+                <button class="filter-btn" onclick="filterEvents('major')">Major Events</button>
+                <button class="filter-btn" onclick="filterEvents('scramble')">Scrambles</button>
+                <button class="filter-btn" onclick="filterEvents('stroke')">Stroke Play</button>
+            </div>
+            
+            <div class="event-list">
+                <div class="event" data-type="scramble">
+                    <span class="event-date">MAR 15</span>
+                    <div class="event-details">
+                        <h4>Spring Opener</h4>
+                        <p>Season kickoff scramble - 8:00 AM Shotgun</p>
+                    </div>
+                    <span class="event-type">Scramble</span>
+                </div>
+                
+                <div class="event" data-type="stroke">
+                    <span class="event-date">APR 5</span>
+                    <div class="event-details">
+                        <h4>Masters Weekend Tournament</h4>
+                        <p>Individual stroke play - Tee times start 8:00 AM</p>
+                    </div>
+                    <span class="event-type">Stroke Play</span>
+                </div>
+                
+                <div class="event" data-type="team">
+                    <span class="event-date">APR 19</span>
+                    <div class="event-details">
+                        <h4>Two-Man Best Ball</h4>
+                        <p>Partner event - Sign up with teammate</p>
+                    </div>
+                    <span class="event-type">Team</span>
+                </div>
+                
+                <div class="event" data-type="stroke">
+                    <span class="event-date">MAY 3</span>
+                    <div class="event-details">
+                        <h4>Individual Stroke Play Championship</h4>
+                        <p>Flighted competition - Tee times start 7:30 AM</p>
+                    </div>
+                    <span class="event-type">Stroke Play</span>
+                </div>
+                
+                <div class="event" data-type="major">
+                    <span class="event-date">MAY 17-18</span>
+                    <div class="event-details">
+                        <h4>Member-Guest Championship</h4>
+                        <p>Two-day event - Limited to 60 teams</p>
+                    </div>
+                    <span class="event-type">Major</span>
+                </div>
+                
+                <div class="event" data-type="match">
+                    <span class="event-date">JUN 7</span>
+                    <div class="event-details">
+                        <h4>President's Cup</h4>
+                        <p>Match play tournament - Qualifying rounds begin May 20</p>
+                    </div>
+                    <span class="event-type">Match Play</span>
+                </div>
+                
+                <div class="event" data-type="scramble">
+                    <span class="event-date">JUN 21</span>
+                    <div class="event-details">
+                        <h4>Summer Solstice Scramble</h4>
+                        <p>Longest day celebration - 1:00 PM Start</p>
+                    </div>
+                    <span class="event-type">Scramble</span>
+                </div>
+                
+                <div class="event" data-type="stroke">
+                    <span class="event-date">JUL 12</span>
+                    <div class="event-details">
+                        <h4>Patriot Cup</h4>
+                        <p>Red, white & blue theme - Wear patriotic colors</p>
+                    </div>
+                    <span class="event-type">Stroke Play</span>
+                </div>
+                
+                <div class="event" data-type="scramble">
+                    <span class="event-date">AUG 2</span>
+                    <div class="event-details">
+                        <h4>Dog Days Tournament</h4>
+                        <p>Beat the heat scramble - Early 7:00 AM start</p>
+                    </div>
+                    <span class="event-type">Scramble</span>
+                </div>
+                
+                <div class="event" data-type="major">
+                    <span class="event-date">SEP 6-7</span>
+                    <div class="event-details">
+                        <h4>Club Championship</h4>
+                        <p>36-hole championship - Must have 10+ rounds to qualify</p>
+                    </div>
+                    <span class="event-type">Major</span>
+                </div>
+                
+                <div class="event" data-type="stroke">
+                    <span class="event-date">OCT 4</span>
+                    <div class="event-details">
+                        <h4>Fall Classic</h4>
+                        <p>Individual stroke play - Multiple flights</p>
+                    </div>
+                    <span class="event-type">Stroke Play</span>
+                </div>
+                
+                <div class="event" data-type="scramble">
+                    <span class="event-date">NOV 1</span>
+                    <div class="event-details">
+                        <h4>Turkey Shoot</h4>
+                        <p>Win your Thanksgiving turkey! - Scramble format</p>
+                    </div>
+                    <span class="event-type">Scramble</span>
+                </div>
+                
+                <div class="event" data-type="scramble">
+                    <span class="event-date">DEC 6</span>
+                    <div class="event-details">
+                        <h4>Holiday Scramble & Party</h4>
+                        <p>Year-end celebration - Awards ceremony follows</p>
+                    </div>
+                    <span class="event-type">Scramble</span>
+                </div>
+            </div>
+            
+            <div class="text-center mt-2">
+                <p>All tournaments include closest to pin and long drive contests</p>
+                <p>Entry fee: $25 members | Guests: $35 (when allowed)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="results-section">
+        <div class="container">
+            <h2>Tournament Results</h2>
+            
+            <div class="results-tabs">
+                <button class="tab-btn active" onclick="showResults('recent')">Recent Results</button>
+                <button class="tab-btn" onclick="showResults('standings')">Season Standings</button>
+                <button class="tab-btn" onclick="showResults('records')">Course Records</button>
+            </div>
+            
+            <div class="results-content">
+                <div id="recent-results" class="leaderboard">
+                    <h3>Spring Opener - March 15, 2025</h3>
+                    <div class="leaderboard-item">
+                        <span class="position">1st</span>
+                        <span>Smith, Johnson, Wilson, Anderson</span>
+                        <span>-12</span>
+                        <span>60</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="position">2nd</span>
+                        <span>Martinez, Brown, Davis, Lee</span>
+                        <span>-10</span>
+                        <span>62</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="position">3rd</span>
+                        <span>Thompson, Miller, Roberts, King</span>
+                        <span>-9</span>
+                        <span>63</span>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Contest Winners:</h4>
+                        <p>Closest to Pin #7: Mike Johnson - 2'3"</p>
+                        <p>Closest to Pin #16: Steve Martinez - 4'8"</p>
+                        <p>Long Drive #9: Dave Wilson - 287 yards</p>
+                    </div>
+                </div>
+                
+                <div id="standings-results" class="leaderboard" style="display: none;">
+                    <h3>2025 Player of the Year Standings</h3>
+                    <p style="margin-bottom: 1rem;">Points awarded: 1st = 20, 2nd = 15, 3rd = 12, 4th = 10, 5th = 8, 6-10 = 5</p>
+                    <div class="leaderboard-item">
+                        <span class="position">1</span>
+                        <span>Mike Johnson</span>
+                        <span>3 wins</span>
+                        <span>85 pts</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="position">2</span>
+                        <span>Robert Campbell</span>
+                        <span>2 wins</span>
+                        <span>72 pts</span>
+                    </div>
+                    <div class="leaderboard-item">
+                        <span class="position">3</span>
+                        <span>Dave Wilson</span>
+                        <span>2 wins</span>
+                        <span>68 pts</span>
+                    </div>
+                </div>
+                
+                <div id="records-results" class="leaderboard" style="display: none;">
+                    <h3>Bentwood Course Records</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h4>18-Hole Records</h4>
+                            <p><strong>Course Record:</strong> 64 - Mike Johnson (2023)</p>
+                            <p><strong>Senior Record:</strong> 67 - Bill Thompson (2024)</p>
+                            <p><strong>Tournament Record:</strong> 65 - Robert Campbell (2024 Club Championship)</p>
+                        </div>
+                        <div>
+                            <h4>Hole-in-One Club</h4>
+                            <p>Steve Martinez - Hole #7 (2024)</p>
+                            <p>John Smith - Hole #16 (2023)</p>
+                            <p>Dave Wilson - Hole #3 (2023)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news" class="news-section">
+        <div class="container">
+            <h2>Latest News & Updates</h2>
+            
+            <div class="news-grid">
+                <div class="news-item">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect fill='%234caf50' width='400' height='200'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Spring Tournament</text></svg>" alt="Spring Opener">
+                    <div class="news-content">
+                        <div class="news-date">March 16, 2025</div>
+                        <h3>Record Turnout for Spring Opener</h3>
+                        <p>144 players competed in our season opening scramble. Congratulations to the winning team who shot an impressive -12!</p>
+                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 8px 20px;">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect fill='%232d5a3d' width='400' height='200'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Course Update</text></svg>" alt="Course">
+                    <div class="news-content">
+                        <div class="news-date">March 1, 2025</div>
+                        <h3>Course Improvements Complete</h3>
+                        <p>All 18 greens have been resurfaced and are rolling at championship speeds. New tee markers installed on holes 3, 7, and 15.</p>
+                        <a href="#" class="btn" style="font-size: 0.9rem; padding: 8px 20px;">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect fill='%231a4d2e' width='400' height='200'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='20'>Member Guest</text></svg>" alt="Member Guest">
+                    <div class="news-content">
+                        <div class="news-date">February 15, 2025</div>
+                        <h3>Member-Guest Registration Opens</h3>
+                        <p>Registration is now open for our premier event May 17-18. Limited to 60 teams. Sign up early to secure your spot!</p>
+                        <a href="#register" class="btn" style="font-size: 0.9rem; padding: 8px 20px;">Register Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-2">
+                <a href="#" class="btn">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openImage(this)">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%234caf50' width='400' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='18'>Tournament Action</text></svg>" alt="Tournament">
+                </div>
+                
+                <div class="gallery-item" onclick="openImage(this)">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%232d5a3d' width='400' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='18'>Member-Guest</text></svg>" alt="Member-Guest">
+                </div>
+                
+                <div class="gallery-item" onclick="openImage(this)">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%231a4d2e' width='400' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='18'>Awards Banquet</text></svg>" alt="Awards">
+                </div>
+                
+                <div class="gallery-item" onclick="openImage(this)">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%234caf50' width='400' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='18'>Course Views</text></svg>" alt="Course">
+                </div>
+                
+                <div class="gallery-item" onclick="openImage(this)">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%232d5a3d' width='400' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='18'>Championship</text></svg>" alt="Championship">
+                </div>
+                
+                <div class="gallery-item" onclick="openImage(this)">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect fill='%231a4d2e' width='400' height='250'/><text x='50%' y='50%' text-anchor='middle' dy='.3em' fill='white' font-size='18'>Social Events</text></svg>" alt="Social">
+                </div>
+            </div>
+            
+            <div class="text-center mt-2">
+                <p>Click any image to enlarge</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="registration-section">
+        <div class="container">
+            <h2>Member Registration</h2>
+            
+            <form class="registration-form" id="memberForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <h3 class="text-center mb-2">Join Bentwood MGA - Only $40/Year</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birthdate">Birth Date</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                    <div class="form-group">
+                        <label for="memberSince">Member Since</label>
+                        <input type="number" id="memberSince" name="memberSince" placeholder="Year" min="1990" max="2025">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="handicap">Current Handicap Index</label>
+                        <input type="number" id="handicap" name="handicap" step="0.1" min="0" max="54" placeholder="e.g., 12.4">
+                    </div>
+                    <div class="form-group">
+                        <label for="ghin">GHIN Number</label>
+                        <input type="text" id="ghin" name="ghin" placeholder="If you have one">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="shirtSize">Shirt Size (for tournament prizes)</label>
+                    <select id="shirtSize" name="shirtSize">
+                        <option value="">Select size</option>
+                        <option value="S">Small</option>
+                        <option value="M">Medium</option>
+                        <option value="L">Large</option>
+                        <option value="XL">X-Large</option>
+                        <option value="XXL">XX-Large</option>
+                        <option value="XXXL">XXX-Large</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="emergencyContact">Emergency Contact Name</label>
+                        <input type="text" id="emergencyContact" name="emergencyContact">
+                    </div>
+                    <div class="form-group">
+                        <label for="emergencyPhone">Emergency Phone</label>
+                        <input type="tel" id="emergencyPhone" name="emergencyPhone">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="paymentMethod">Payment Method *</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Select payment method</option>
+                        <option value="online">Pay Online (Credit/Debit)</option>
+                        <option value="check">Mail Check</option>
+                        <option value="proshop">Pay at Pro Shop</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="newsletter" checked>
+                        Send me the monthly newsletter and tournament updates
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="agree" required>
+                        I agree to abide by the MGA rules and code of conduct *
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem;">Submit Registration - $40</button>
+                
+                <p class="text-center mt-2" style="color: var(--text-light);">
+                    After submitting, you'll receive payment instructions based on your selected method.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <p>📧 <strong>Email</strong></p>
+                    <p>info@bentwoodmga.com</p>
+                </div>
+                <div class="contact-item">
+                    <p>📞 <strong>Phone</strong></p>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <p>📍 <strong>Location</strong></p>
+                    <p>Bentwood Country Club<br>123 Golf Course Drive<br>San Angelo, TX 76904</p>
+                </div>
+                <div class="contact-item">
+                    <p>🕐 <strong>Office Hours</strong></p>
+                    <p>Tuesday & Thursday<br>9:00 AM - 12:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-2">
+                <a href="mailto:info@bentwoodmga.com" class="btn" style="background: white; color: var(--primary-color);">Send Us a Message</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#events">Tournament Schedule</a></li>
+                        <li><a href="#register">Join MGA</a></li>
+                        <li><a href="#members">Member Directory</a></li>
+                        <li><a href="#board">Board Members</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://www.ghin.com" target="_blank">GHIN Handicap Lookup</a></li>
+                        <li><a href="#" target="_blank">Rules of Golf</a></li>
+                        <li><a href="#" target="_blank">Local Rules</a></li>
+                        <li><a href="#" target="_blank">Pace of Play Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Facebook Group</a></li>
+                        <li><a href="#">Newsletter Archive</a></li>
+                        <li><a href="#">Photo Submissions</a></li>
+                        <li><a href="#">Suggestion Box</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bentwood Men's Golf Association. All rights reserved.</p>
+                <p>Website maintained by MGA Board | Last updated: March 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
+        // Event filtering
+        function filterEvents(type) {
+            const events = document.querySelectorAll('.event');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show/hide events
+            events.forEach(event => {
+                if (type === 'all' || event.dataset.type === type) {
+                    event.style.display = 'grid';
+                } else {
+                    event.style.display = 'none';
+                }
+            });
+        }
+
+        // Results tabs
+        function showResults(tab) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.leaderboard');
+            
+            // Update active tab
+            tabs.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show correct content
+            document.getElementById('recent-results').style.display = tab === 'recent' ? 'block' : 'none';
+            document.getElementById('standings-results').style.display = tab === 'standings' ? 'block' : 'none';
+            document.getElementById('records-results').style.display = tab === 'records' ? 'block' : 'none';
+        }
+
+        // Form submission
+        document.getElementById('memberForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // For now, just show an alert. In production, this would submit to a server
+            alert(`Thank you for registering, ${data.firstName}! 
+                
+We'll send payment instructions to ${data.email}.
+                
+Annual dues: $40
+Payment method: ${data.paymentMethod}
+                
+Welcome to Bentwood MGA!`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Gallery image click
+        function openImage(element) {
+            // In a real implementation, this would open a lightbox
+            const img = element.querySelector('img');
+            alert('In the live site, this would open a full-size image viewer.');
+        }
+
+        // Add current year to copyright
+        const currentYear = new Date().getFullYear();
+        document.querySelectorAll('.footer-bottom p')[0].textContent = 
+            `© ${currentYear} Bentwood Men's Golf Association. All rights reserved.`;
+
+        // Highlight current page in navigation
+        const currentHash = window.location.hash || '#home';
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentHash) {
+                link.style.fontWeight = 'bold';
+            }
+        });
+
+        // Auto-update member count
+        const memberCount = document.querySelectorAll('.members-list li').length;
+        document.querySelector('.stat-number').textContent = memberCount;
+
+        // Add ARIA labels for accessibility
+        document.querySelectorAll('img').forEach(img => {
+            if (!img.getAttribute('alt')) {
+                img.setAttribute('alt', 'Bentwood MGA image');
+            }
+        });
+
+        // Form validation enhancement
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('blur', function() {
+            if (this.value && !this.value.includes('@')) {
+                this.setCustomValidity('Please enter a valid email address');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // Phone number formatting
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(input => {
+            input.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 6) {
+                    value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+                } else if (value.length >= 3) {
+                    value = value.slice(0, 3) + '-' + value.slice(3);
+                }
+                e.target.value = value;
+            });
+        });
+
+        // Handicap validation
+        const handicapInput = document.getElementById('handicap');
+        handicapInput.addEventListener('blur', function() {
+            const value = parseFloat(this.value);
+            if (value && (value < 0 || value > 54)) {
+                this.setCustomValidity('Handicap must be between 0 and 54');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // Logo fallback - if the logo image fails to load, show initials
+        const logoImg = document.querySelector('.logo img');
+        logoImg.addEventListener('error', function() {
+            this.style.display = 'none';
+            const fallback = document.createElement('div');
+            fallback.style.cssText = 'width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary-color);';
+            fallback.textContent = 'MGA';
+            this.parentNode.insertBefore(fallback, this);
+        });
+    </script>
+</body>
+</html>
